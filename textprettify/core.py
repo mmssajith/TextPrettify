@@ -25,12 +25,12 @@ def remove_extra_whitespace(text: str) -> str:
         'Multiple lines'
     """
     # Replace multiple whitespace characters with a single space
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r"\s+", " ", text)
     # Remove leading and trailing whitespace
     return text.strip()
 
 
-def slugify(text: str, separator: str = '-', lowercase: bool = True) -> str:
+def slugify(text: str, separator: str = "-", lowercase: bool = True) -> str:
     """
     Convert text to a URL-friendly slug.
 
@@ -55,8 +55,8 @@ def slugify(text: str, separator: str = '-', lowercase: bool = True) -> str:
         text = text.lower()
 
     # Replace spaces and non-alphanumeric characters with separator
-    text = re.sub(r'[^\w\s-]', '', text)
-    text = re.sub(r'[-\s]+', separator, text)
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[-\s]+", separator, text)
 
     # Remove leading/trailing separators
     text = text.strip(separator)
@@ -65,9 +65,7 @@ def slugify(text: str, separator: str = '-', lowercase: bool = True) -> str:
 
 
 def get_reading_time(
-    text: str,
-    words_per_minute: int = 200,
-    include_unit: bool = True
+    text: str, words_per_minute: int = 200, include_unit: bool = True
 ) -> str | int:
     """
     Calculate estimated reading time for text.
@@ -129,14 +127,11 @@ def capitalize_words(text: str, exceptions: Optional[list[str]] = None) -> str:
         else:
             capitalized.append(word.lower())
 
-    return ' '.join(capitalized)
+    return " ".join(capitalized)
 
 
 def truncate_text(
-    text: str,
-    max_length: int,
-    suffix: str = '...',
-    whole_words: bool = True
+    text: str, max_length: int, suffix: str = "...", whole_words: bool = True
 ) -> str:
     """
     Truncate text to a maximum length.
@@ -164,7 +159,7 @@ def truncate_text(
 
     if whole_words:
         # Find the last space before truncate point
-        truncate_at = text.rfind(' ', 0, truncate_at)
+        truncate_at = text.rfind(" ", 0, truncate_at)
         if truncate_at == -1:
             truncate_at = max_length - len(suffix)
 
@@ -190,10 +185,10 @@ def remove_punctuation(text: str, keep: Optional[str] = None) -> str:
     """
     if keep:
         # Create translation table excluding characters to keep
-        punctuation_to_remove = ''.join(c for c in string.punctuation if c not in keep)
-        translator = str.maketrans('', '', punctuation_to_remove)
+        punctuation_to_remove = "".join(c for c in string.punctuation if c not in keep)
+        translator = str.maketrans("", "", punctuation_to_remove)
     else:
-        translator = str.maketrans('', '', string.punctuation)
+        translator = str.maketrans("", "", string.punctuation)
 
     return text.translate(translator)
 

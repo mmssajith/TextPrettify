@@ -1,26 +1,36 @@
 """
 TextPrettify - A mini-library for text cleaning and formatting.
 
-Provides simple utilities to manipulate and format text strings.
+Provides class-based utilities to manipulate, format, and analyze text strings.
 """
 
-from .core import (
-    remove_extra_whitespace,
-    slugify,
-    get_reading_time,
-    capitalize_words,
-    truncate_text,
-    remove_punctuation,
-    count_words,
+from .formatters import (
+    BasicFormatter,
+    CaseFormatter,
+    TransformationFormatter,
+    GenerationFormatter,
+    NormalizationFormatter,
+)
+from .analyzers import (
+    CharacterAnalyzer,
+    SentenceAnalyzer,
+    ReadabilityAnalyzer,
+    StatisticsAnalyzer,
+    LanguageAnalyzer,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = [
-    "remove_extra_whitespace",
-    "slugify",
-    "get_reading_time",
-    "capitalize_words",
-    "truncate_text",
-    "remove_punctuation",
-    "count_words",
+    # Formatters
+    "BasicFormatter",
+    "CaseFormatter",
+    "TransformationFormatter",
+    "GenerationFormatter",
+    "NormalizationFormatter",
+    # Analyzers
+    "CharacterAnalyzer",
+    "SentenceAnalyzer",
+    "ReadabilityAnalyzer",
+    "StatisticsAnalyzer",
+    "LanguageAnalyzer",
 ]
